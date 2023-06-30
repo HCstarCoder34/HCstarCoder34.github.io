@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int FALSE = 0;
+int TRUE = 1;
+
+//This is a program that displays a list of numbers.  Then, the program is going to sort this list of numbers one by one until 
+//it is sorted from min number to max number
+
+void BubbleSort(int data[], int dataSize)
+{
+	int sorted = FALSE;                                     // Assume not sorted
+	while (!sorted)                                         // test while true, compare and swap
+	{
+		sorted = TRUE;                                      // Assume not more sorting
+		for (int i = 0; i < dataSize - 1; i++)              // Stop one before last
+			if (data[i] > data[i + 1])                      
+			{
+				int temp = data[i];                         // Swap
+				data[i] = data[i + 1];
+				data[i + 1] = temp;
+				sorted = FALSE;                             // Swap happened, sorting continues
+			}
+
+		for (int i = 0; i < dataSize; i++)                  // Print sort process
+			printf("%d ", data[i]);
+			printf("\n");
+	}
+}
+
+int main()
+{
+	int data[20];
+	int dataSize;
+
+	printf("\nProject 4: Bubble Sort - Hannah Chang\n\n");
+	srand(time(NULL));									//Seed random numbers
+	dataSize = rand() % (20 - 15 + 1) + 15;	            //Choose data size between 15 and 20,
+	printf("Data size: %d\n", dataSize);
+
+	for (int i = 0; i < dataSize; i++) {				//Fill array w/ random numbers between 11 and 99
+		data[i] = rand() % (99 - 10 + 1) + 10;
+		printf("%d ", data[i]);
+	}
+
+	printf("\n\nAfter sorted with bubble sort algorithm\n");
+	BubbleSort(data, dataSize);
+	system("pause");
+}
+		
+
+		/*for (int i = 0; i < dataSize; i++)              //Print data size and data
+			printf("%4d", data[i]);							
+			printf("\n\n");*/								    
+
+
+
+
+	
+
+
+

@@ -1,0 +1,24 @@
+def temperatures(Farenheit):
+    Celsius = 0.0
+    Celsius = (Farenheit - 32) / 1.8
+    print("Your temperature is: ", Celsius,  "degrees Celsius")
+
+def distance(miles):
+    hr = 0
+    meters = 0.0
+    meters = (miles) * 0.44704
+    print("Your distance in meters is: ", meters,  "meters per second")
+    
+def main():
+    x = int(input("Enter 1 to convert Farenheit temperature to Celsius\n Enter 2 to convert speed from miles/hr to meters/second\n Enter either 1 or 2: "))
+    if x == 1:
+        Farenheit = float(input("Enter in the temperature in Farenheit: "))
+        temperatures(Farenheit)
+    elif x == 2:
+        miles = float(input("How many miles per hour are you going: "))
+        distance(miles)
+    else:
+        print("Error")  
+
+main()
+

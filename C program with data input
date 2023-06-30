@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int main()
+{
+    int number = 0;
+    int min = 0;
+    int max = 0;
+    int sum = 0;
+    int count = 0;
+    float average = 0.0;
+
+    printf("Enter a number (enter a 0 to stop): ");
+    scanf_s("%d", &number);
+    min = number;
+    max = number;
+
+    while (number != 0)
+    {
+        if (number < min)                                 //find min
+        {
+            min = number;
+        }
+        if (number > max)                                 //find max
+        {
+            max = number;
+        }
+        sum += number;                                    //calculate sum
+        count++;                                          //for average
+        printf("Enter a number (enter a 0 to stop): ");
+        scanf_s("%d", &number);
+    }
+
+    printf("\n");
+    if (count == 0)
+    {
+        printf("No number is read\n");
+    }
+    else
+    {
+        printf("Minimum is: %d\n", min);
+        printf("Maximum is: %d\n", max);
+        printf("Sum is: %d\n", sum);
+        average = (float)sum / count;
+        printf("Average is: %.2f\n", average);
+        system("pause");
+    }
+
+    return 0;   
+}
+

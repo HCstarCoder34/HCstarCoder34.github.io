@@ -1,0 +1,81 @@
+#include <iostream>
+
+//this is going to start by generating a random #
+//then, it will display an object of stars with that random #
+//finally, this program inverts the object of stars in every possible way
+
+int main()
+{
+	int number;
+	srand(time(0));										//	Send random number
+	number = rand() % 5 + 5;							//	Create a random number between 5 and 9
+	printf("Number = %4d\n\n", number);
+	printf("\nShape A\n");
+
+	for (int row = 0; row <= number; row++)
+	{
+		for (int col = 0; col <= row; col++)
+			printf("* ");                               //	Print stars
+			printf("\n");                               //	Move to next line
+	}
+	
+	printf("\nShape B\n");
+	for (int row = 0; row <= number; row++)
+	{
+		for (int col = 0; col >= row - number; col--)
+	
+			printf("* ");
+			printf("\n");
+	}
+
+	printf("\nShape C\n");
+	for (int row = 0; row <= number; row++)
+	{
+		for (int col = 0; col <= number - row; col++) {		    //	Print spaces before stars
+			printf("  ");										//  Print 2 spaces
+		}
+		for (int col = 0; col <= row; col++) 
+			//	Print stars
+			printf("* ");
+			printf("\n");
+		//	Move to next line
+	}
+
+	printf("\nShape D\n");
+	for (int row = 0; row <= number; row++)
+	{
+		for (int col = 0; col < number + row; col++) 		            //	Print spaces before stars
+			printf("  ");										//  Print 2 spaces
+		
+		for (int col = row; col <= number; col++)
+		//	Print stars
+			printf(" *");
+			printf("\n");
+													//	Move to next line
+	}
+
+	printf("\nShape E\n");
+	for (int row = 0; row <= number; row++)
+	{
+		for (int col = 0; col <= row; col++) 				//	Print spaces before stars
+			printf("  ");							        //	Print 2 spaces
+
+			printf("* ");								    //	Print single star
+			printf("\n");
+		//	Move to next line
+	}
+
+	printf("\nShape F\n");
+	for (int row = number; row >= 0; row--)
+	{
+		for (int col = 0; col <= row; col++)
+		//	Print spaces before stars
+			printf("  ");										//	Print 2 spaces
+
+			printf("* ");									    //	Print single star
+			printf("\n");
+		//	Move to next line
+	}
+
+	system("pause");
+}

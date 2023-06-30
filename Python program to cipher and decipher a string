@@ -1,0 +1,29 @@
+def cipher(password):
+    newString = len(password)
+    x = ord(password[0])
+    i = 0
+    next = ""
+    while i < newString:
+        next += chr(x + ord(password[i]))
+        i += 1
+    return(next)
+
+def decipher(password):
+    newString = len(password)
+    x = ord(password[0])//2
+    i = 0
+    reverse = ""
+    while i < newString:
+        reverse += chr(ord(password[i]) - x)
+        i += 1
+    return(reverse)
+
+def main():
+    pw = input("Enter any 7 digit number: ")
+    result = cipher(pw)
+    print("Your result is: ", result)
+
+    result2 = decipher(result)
+    print("Your 2nd result is: ", result2)
+
+main()

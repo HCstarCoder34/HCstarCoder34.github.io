@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="">
+        <title>Inflate/Deflate Balloon</title>
+    </head>
+    <body>
+        <h1><center>Balloons</center></h1>  
+        <h3><center>This assignment is going to inflate/deflate the balloon item 
+            when you click the up and down arrows on the keyboard.  Also, when the balloon exceeds a certain size,
+        it is going to change the item to an explosion item and stop inflating/deflating.</center></h3>
+        <h3>This assignment was all done on Javascript and the objective was to make the items dynamic on the webpage.  
+            In this example, I added emoji items on the webpage and made them inflate/deflate with the up and down arrows 
+            on the keyboard. This is just one example of how to make a webpage dynamic.  
+        </h3>
+        <p>🎈</p>
+
+<script>
+  let p = document.querySelector("p");
+  let size;
+  function setSize(newSize) {
+    size = newSize;
+    p.style.fontSize = size + "px";
+  }
+  setSize(20);
+
+  function handleArrow(event) {
+    if (event.key == "ArrowUp") {
+      if (size > 70) {
+        p.textContent = "💥";
+        document.body.removeEventListener("keydown", handleArrow);
+      } else {
+        setSize(size * 1.1);
+        event.preventDefault();
+      }
+    } else if (event.key == "ArrowDown") {
+      setSize(size * 0.9);
+      event.preventDefault();
+    }
+  }
+  document.body.addEventListener("keydown", handleArrow);
+</script>
+</body>
+</html>

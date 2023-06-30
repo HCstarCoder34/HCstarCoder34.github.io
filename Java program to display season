@@ -1,0 +1,95 @@
+package project2;
+import java.util.Scanner;
+import java.time.MonthDay;
+
+
+public class Project2 {
+    public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+       String month;
+       int day;
+       System.out.println("Enter a date (with the month/day format, without abbreviating the month) and I am going to indicate what season this date corresponds to: ");
+       month = input.next();
+       day = input.nextInt();
+       
+           if (day <= 0 || day > 31) {
+               System.out.println("Invalid");
+               return;
+           }
+           
+           switch(month) {
+               case "January":
+                   System.out.println("Winter");
+                   break;
+               case "February":
+                   if (day > 28) {
+                       System.out.println("Invalid");
+                   } else {
+                       System.out.println("Winter");
+                   }
+                   break;
+               case "March":
+                   if (day <= 19) {
+                       System.out.println("Winter");
+                   } else {
+                       System.out.println("Spring");
+                   }
+                   break;
+               case "April":
+                   if (day == 31) {
+                       System.out.println("Invalid");
+                   } else {
+                       System.out.println("Spring");
+                   }
+                   break;
+               case "May":
+                   System.out.println("Spring");
+                   break;
+               case "June":
+                   if (day <= 20) {
+                       System.out.println("Spring");
+                   } else {
+                       System.out.println("Summer");
+                   }
+                   break;
+               case "July":
+               case "August":
+                   System.out.println("Summer");
+                   break;
+               case "September":
+                   if (day >= 22) {
+                       if (day == 31) {
+                           System.out.println("Invalid");
+                       } else {
+                           System.out.println("Autumn");
+                       }
+                       } else {
+                           System.out.println("Summer");
+                   } 
+                   break;
+               case "October":
+                   System.out.println("Autumn");
+                   break;
+               case "November": 
+                   if (day == 31) {
+                       System.out.println("Invalid");
+                   } else {
+                   System.out.println("Autumn");
+                   }
+                   break;
+               case "December":
+                   if (day <= 20) {
+                       System.out.println("Autumn");
+                   } else {
+                       System.out.println("Winter");
+                   }
+                   break;
+                
+               default:
+                   System.out.println("Quit");
+                   break;
+           }
+                
+    }
+    
+}

@@ -1,0 +1,79 @@
+package computerlab;
+import java.util.Scanner;
+
+
+public class ComputerLab {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String user;
+        int number;
+        int computer;
+        int userInput;
+        String[][] station = {
+            {
+                "empty", "empty", "empty", "empty", "empty",
+            }, {
+                "empty", "empty", "empty", "empty", "empty", "empty"
+            }, {
+                "empty", "empty", "empty", "empty"
+            }, {
+                "empty", "empty", "empty"
+            }
+        };
+        
+        do {
+            System.out.println("LAB STATUS");
+            System.out.println("Lab #Computer Stations");
+            //iterating through the 2 dimensional array to display the empty lab status
+            for (int i = 0; i < station.length; i++) {
+                System.out.print((i + 1) + " ");
+                for (int j = 0; j < station[i].length; j++) {
+                    System.out.print((j + 1) + ": " + station[i][j] + " ");
+                }
+                System.out.println();
+            }
+
+
+            System.out.println("MAIN MENU");
+            System.out.println("0: Quit");
+            System.out.println("1: Simulate Login");
+            System.out.println("2: Simulate Logoff");
+            System.out.println("3: Search");
+            userInput = input.nextInt();
+            
+            if (userInput == 1) {
+                //getting input from the user 
+                System.out.println("Enter your UserID: ");
+                user = input.next();
+                System.out.println("Enter the Lab Number: ");
+                number = input.nextInt();
+                System.out.println("Enter the Computer Station: ");   
+                computer = input.nextInt();
+                station[number - 1][computer - 1] = user;
+            } else if (userInput == 2) {
+                System.out.println("Enter your UserID: ");
+                user = input.next();
+                for (int i = 0; i < station.length; i++) {
+                    for (int j = 0; j < station[i].length; j++) {
+                        if (user.equals(station[i][j])) {
+                            station[i][j] = "empty";
+                        }
+                    }
+                }
+                System.out.println("user " + user + " is logged off");
+                
+            } else if (userInput == 3) {
+                System.out.println("Enter your UserID: ");
+                user = input.next();
+                for (int i = 0; i < station.length; i++) {
+                    for (int j = 0; j < station[i].length; j++) {
+                        if (user.equals(station[i][j])) {
+                            System.out.println("Lab #" + (i + 1) + " Computer Station#" + (j + 1));
+                        }
+                    }
+                }
+            }
+        } while (userInput != 0);
+    }
+    
+}

@@ -1,0 +1,60 @@
+package fileprocessing;
+import java.io.File;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+
+public class FileProcessing {
+
+    public static void main(String[] args) throws Exception  {
+       File infile = new File("C:\\Users\\Hannah\\OneDrive\\Desktop\\CS55_Java\\Assignments\\FileProcessing\\src\\fileprocessing\\input.txt");
+       Scanner input = new Scanner(infile);
+       File outfile = new File("output.txt");
+       PrintWriter pr = new PrintWriter(outfile);
+       int upper = 0;
+       int lower = 0;
+       int wspace = 0;
+       int newLine = 0;
+       int numbers = 0;
+       int other = 0;
+       
+        while(input.hasNext())
+       {
+           String line = input.nextLine();
+           for (int i = 0; i < line.length(); i++){
+               char ch = line.charAt(i);
+               if (Character.isUpperCase(ch)) {
+                   upper++;
+               } else if (Character.isLowerCase(ch)) {
+                   lower++;
+               } else if (Character.isDigit(ch)) {
+                   numbers++;
+               } else if (Character.isWhitespace(ch)) {
+                   wspace++;
+               } else {
+                   other++;
+               }    
+           }
+           
+           newLine++;
+           System.out.println(line);
+           pr.println(line);
+       }
+        
+       System.out.println("1. Total number of upper case alphabet: " + upper);
+       System.out.println("2. Total number of lower case alphabet: " + lower);
+       System.out.println("3. Total number of digits: " + numbers);
+       System.out.println("4. Total number of white space (blank, ‘\\n’ and ‘\\t’): " + wspace);
+       System.out.println("5. Total number of lines: " + newLine);
+       System.out.println("6. Total number any other type of characters: " + other);
+       
+       input.close();pr.close();
+    }
+  }
+    
+       
+
+
+
+  
+    

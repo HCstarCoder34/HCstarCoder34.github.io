@@ -1,0 +1,19 @@
+package project3;
+import java.util.Scanner;
+
+
+public class Project3 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String userInput;
+        System.out.println("Enter your firstName, middleName, and lastName seperated by at least 1 blank: ");
+        userInput = input.nextLine();
+        String[] name = userInput.split("\\s");
+        System.out.print(name[name.length - 1] + ", ");
+        
+        for (int i = 0; i < name.length - 1; i++) {
+            System.out.print(name[i].charAt(0) + ".");
+        }
+    }
+}
+

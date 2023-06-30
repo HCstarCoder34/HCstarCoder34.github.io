@@ -1,0 +1,28 @@
+def computepay(hours, rate):    
+    #print("In computepay", hours, rate)
+    if hours > 40:
+        print("Overtime")
+        reg = hours * rate  
+        otp = (hours - 40.0) * (rate * 0.5)
+        print(reg, otp)
+        pay = reg + otp
+    else:
+        print("Regular")
+        pay = hours * rate
+        #print("Returning", pay)
+        return pay
+    
+sh = input("Enter hours: ")
+sr = input("Enter rate: ")
+try:
+    fh = float(sh)
+    fr = float(sr)
+except:
+    print("Error, please enter numeric input")
+    quit()
+    print(fh, fr)
+
+xp = computepay(fh, fr)    
+print("Pay: ", xp)
+tr = xp - (0.0825 * float(xp))
+print("Pay after deducted taxes: ", tr)

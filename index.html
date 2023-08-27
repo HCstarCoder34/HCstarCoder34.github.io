@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML, CSS">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <meta name="description" content="">
+    <title>Bakery Website</title>
+
+      <style>
+        header {
+  background-color: rgba(128, 80, 18, 0.728);
+  color: black;
+  font-family: Gautami;
+  text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+.main {
+    background-color: rgba(128, 80, 18, 0.728);
+    color: black;
+    padding: 10px;
+    font-family: Gautami;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .logo {
+    /* background-color: white; */
+    width: 100%;
+    height: 245px;
+  }
+
+  #nav-container ol
+  {
+      list-style-type: none; 
+  }
+
+  img {
+    border-radius: 50%;
+  }
+
+  ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    /* background-color: purple; */
+  }
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 17px;
+  }
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+  }
+  ul.breadcrumb li a {
+    color: #0a0b0c;
+    text-decoration: none;
+  }
+  ul.breadcrumb li a:hover {
+    color: #292a2c;
+    text-decoration: underline;
+  }
+
+  .description {
+    text-align: center;
+    padding: 10px;
+  }
+
+  p::first-letter {
+    color: black;
+    font-size: xx-large;
+  }
+
+  span.about {
+    font-style: italic;
+  }
+
+  .row {
+    margin: 8px -16px;
+    margin-left: 2px;
+
+  }
+  
+  /* Add padding BETWEEN each column */
+  .row,
+  .row > .column {
+    padding: 8px;
+  }
+  
+   /* Create four equal columns that floats next to each other */
+   .column {
+    float: left;
+    width: 33%;
+    border-radius: 50%;
+  }
+  
+  /* Clear floats after rows */ 
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Content */
+  .content {
+     padding: 10px;
+  }
+
+  .image { 
+    height: 20%;
+    width:20%;
+  }
+
+  /* Clear floats after the columns */
+  .row::after {
+    content: "";
+    display: table;
+    clear: both;
+  } 
+
+   /* Responsive layout - makes the 3 column stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+  
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    right: 0;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .5s ease;
+  }
+  
+  .container:hover .overlay {
+    width: 100%;
+    left: 0;
+  }
+  
+  .text {
+    color: black;
+    font-size: 38px;
+    font-style: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  
+  /* email sign up*/
+  input[type=text], select {
+    width: 160;
+    padding: 3px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    border-style: inset;
+    border: black;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 65px;
+    background-color:lightgrey;
+    color: black;
+    padding: 3px 8px;
+    margin: 8px 0;
+    border-style: inset;
+    border: black;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: rgba(211, 211, 211, 0.66);
+  }
+  
+  .forms1 {
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+   ul.footernav {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0 0 5px 0;
+    padding: 0;
+  }
+
+  .item {
+    margin: 8px 0 0 0;
+  }
+
+  ul.hours li {
+    list-style-type: none;
+  }
+
+  footer {
+    background-color: rgba(120, 22, 22, 0.937);
+    width: 100%;
+    height: 100%;
+  }
+  
+  ul.footernav li {
+    float: left;
+    /* background-color: white; */
+    /* margin: 10px; */
+    padding: 10px;
+  }
+  
+  ul.footernav li a {
+    /* height: 30px;
+    width: 30px; */
+    display: block;
+    text-decoration: none;
+    margin-left: 12px;
+  }
+  
+  ul.footernav .SM {
+    margin-top: 4px;
+    margin-bottom: auto;
+  }
+  
+  ul.footernav li a:hover {
+    background-color: rgba(128, 80, 18, 0.398);
+  }
+      </style>
+    </head>
+
+<body>
+<div class="main">
+    <div class="logo"><img src="images/logo.PNG" alt="logo" width="300" height="300"></div> 
+        <h1>So Good, It's Ridiculous</h1>
+    <nav>
+        <ul class="breadcrumb">
+            <li><a href="SnapAcademies/menu.html">Menu</a></li>
+            <li><a href="SnapAcademies/location.html">Location and Hours</a></li>
+            <li><a href="SnapAcademies/comments.html">Comments and Suggestions</a></li>
+          </ul>
+    </nav>
+    <div>
+        <p class="description">Neighborhood bakery... that happens to be Vegan and Organic... 
+            with Gluten Free options, but otherwise just your average neighborhood bakery. 
+            Plus........everything is hand made. </p>
+        <p class="description">Don't be a stranger. Visit us and get some of our delicious vegan and organic pastries.  We like your feedback. 
+            What are your favorites?  We have a wide assortment of baked goods, like croissants,
+            cookies, cupcakes, muffins, donunts, cronuts, and other pastries.    
+        </p>
+        <p>This is an unofficial website for a small business</p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div>
+        <div class="row">
+            <div class="column">
+            <div class="content">
+                <div class="container">
+                    <img src="images/croissants2.jpg"  alt="This displays croissants" width="315px" height="315px">
+                    <!-- <img src="images/bakedBread.jpg" alt="bakedbread" class="image" width="50" height="50"> -->
+                    <div class="overlay">
+                      <div class="text">Assorted Croissants</div>
+                    </div>
+                  </div>      
+            <!-- <div class="image"><img src="images/croissants2.jpg"  alt="croissants" width="100%" height="100%"></div>
+                <div><h2>Assorted Croissants</h2></div> -->
+            </div>
+            </div>
+            
+            <div class="column">
+            <div class="content">
+                <div class="container">
+                    <img src="images/turnovers.jpg"  alt="This displays turnovers" width="315px" height="315px">
+                    <div class="overlay">
+                      <div class="text">Turnovers</div>
+            </div>
+            </div>
+        </div>
+    </div>
+            
+            <div class="column">
+            <div class="content">
+                <div class="container">
+                    <img src="images/cupcakes.PNG"  alt="This displays cupcakes" width="320px" height="320px">
+                    <div class="overlay">
+                      <div class="text">Cupcakes</div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </div> 
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>About Ridiculous Bakery</h2>
+            <div>
+                <nav id="nav-container">
+                    <img class="questions" src="images/photo6.jpg" alt="photo6" height="219" width="329">
+                <p>Does The Ridiculous Baking have outdoor seating?<br>
+                        <span class="about">Yes, The Ridiculous Baking has outdoor seating.</span><br>
+                   Is The Ridiculous Baking currently offering delivery or takeout?<br>
+                        <span class="about">Yes, The Ridiculous Baking offers takeout.</span><br>
+                   What forms of payment are accepted?<br>
+                        <span class="about">The Ridiculous Baking accepts credit cards.</span><br>
+                    How is The Ridiculous Baking rated?<br>
+                        <span class="about">The Ridiculous Baking has 4 stars.</span><br></p>
+                </nav>  
+            </div>
+
+    <div class="forms1">
+        <p></p>
+        <form action="/action_page.php">
+            <label for="email"><em>Sign up for promotional offers and coupons!</em></label>
+            <br>
+            <input type="text" id="email" placeholder="Your Email.......">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+<footer>
+        <nav>
+            <ul class="footernav">
+                <li><a class="active" href="https://www.youtube.com"><img src="images/SM3.png" class="SM" alt="youtubeLogo" 
+                    width="20px" height="20px"></a></li>
+                <li><a href="https://www.instagram.com"><img src="images/SM2.png" class="SM" alt="instagramLogo" 
+                    width="20px" height="20px"></a></li>
+                <li><a href="https://www.discord.com"><img src="images/SM1.png" class="SM" alt="discordLogo" 
+                    width="25px" height="25px"></a></li>
+              </ul>
+        </nav>  
+        <p class="item">© Ridiculous Bakery 2023</p>
+</footer>
+</body>
+</html>

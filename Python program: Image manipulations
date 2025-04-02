@@ -1,0 +1,98 @@
+# This app manipulates images
+
+
+import numpy as np
+import cv2
+
+
+def sizing():
+    img = cv2.imread('rose.jpg', 1)
+    size = input("Enter 1 to Resize the image UP\nEnter 2 to Resize the image DOWN: ")
+    if (size == "1"):
+        # RESIZES THE IMAGE UP
+        height, width = img.shape[:2]  # recall shape returns w, h and #ofChannels
+        res = cv2.resize(img, (int(width * 1.25), int(height * 1.25)), interpolation=cv2.INTER_AREA)
+        cv2.imshow('image', res)
+        newVar = cv2.waitKey(0)
+        if (newVar == ord('s')):
+            cv2.imwrite("roseUp.jpg", res)
+            cv2.destroyAllWindows()
+    else:
+        # RESIZES THE IMAGE DOWN
+        height, width = img.shape[:2]  # recall shape returns w, h
+        res = cv2.resize(img, (int(width / 2), int(height / 2)), interpolation=cv2.INTER_AREA)
+        cv2.imshow('image', res)
+        newVar = cv2.waitKey(0)
+        if (newVar == ord('s')):
+            cv2.imwrite("roseDown.jpg", res)
+            cv2.destroyAllWindows()
+
+def flipping():
+    image = cv2.imread("rose.jpg", 1)
+    flips = input(
+        "Enter 1 to Flip the image horizontally\nEnter 2 to Flip the image vertically\nEnter 3 to Flip the image both horizontally and vertically: ")
+    if (flips == "1"):
+        # # FLIPPED IMAGE
+        # Flip the image horizontally
+        flipped_horizontal = cv2.flip(image, 1)
+        # Display
+        cv2.imshow('Original Image', image)
+        cv2.imshow('Horizontally', flipped_horizontal)
+        newVar = cv2.waitKey(0)
+        if (newVar == ord('s')):
+            cv2.imwrite("roseHorizontal.jpg", flipped_horizontal)
+        cv2.destroyAllWindows()
+    elif (flips == "2"):
+        # Flip the image vertically
+        flipped_vertical = cv2.flip(image, 0)
+        # Display
+        cv2.imshow('Original Image', image)
+        cv2.imshow('Vertically', flipped_vertical)
+        newVar = cv2.waitKey(0)
+        if (newVar == ord('s')):
+            cv2.imwrite("roseVertical.jpg", flipped_vertical)
+        cv2.destroyAllWindows()
+    elif (flips == "3"):
+        # Flip the image horizontally and vertically
+        flipped_both = cv2.flip(image, -1)
+        # Display
+        cv2.imshow('Original Image', image)
+        cv2.imshow('Both', flipped_both)
+        newVar = cv2.waitKey(0)
+        if (newVar == ord('s')):
+            cv2.imwrite("roseBoth.jpg", flipped_both)
+        cv2.destroyAllWindows()
+
+def rotating():
+    # ROTATES THE IMAGE 90 DEGREES
+    img = cv2.imread('rose.jpg', 1)
+    h, w = img.shape[:2]
+    center = (w / 2, h / 2)  # center is middle of height/width
+    mat = cv2.getRotationMatrix2D(center, 90, 1)
+
+    rotimg = cv2.warpAffine(img, mat, (h, w))
+    cv2.imshow('original', img)
+    cv2.imshow('rotated', rotimg)
+    newVar = cv2.waitKey(0)
+    if (newVar == ord('s')):
+        cv2.imwrite("roseRotate.jpg", rotimg)
+    cv2.destroyAllWindows()
+
+
+def main():
+    # Adds an image
+    image = cv2.imread('rose.jpg')
+
+    #Gets input from the user as to what they would like done to their image
+    x = input("Enter 1 to Resize the image up or down\nEnter 2 to Flip the image(Horizontally, Vertically, or Both\nEnter 3 to Rotate the image 90 degrees\nEnter 4 to Quit: ")
+    while (x == "4"):
+        exit()
+    if (x == "1"):
+        sizing()
+    elif (x == "2"):
+        flipping()
+    elif (x == "3"):
+        rotating()
+
+
+main()

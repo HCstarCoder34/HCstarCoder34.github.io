@@ -1,0 +1,94 @@
+import turtle
+
+def drawSquare(myTurtle, sideLength):
+    for i in range(4):
+        myTurtle.forward(sideLength)
+        myTurtle.right(90)
+
+def drawSpiral(myTurtle, maxSide):
+    for sideLength in range(1, maxSide + 1, 5):
+        myTurtle.forward(sideLength)
+        myTurtle.right(90)
+
+def drawTriangle(myTurtle, sideLength):
+    for i in range(3):
+        myTurtle.forward(sideLength)
+        myTurtle.right(120)
+
+def drawCircle(myTurtle, radius):
+    circumference = 2 * 3.1415 * radius
+    sideLength = circumference / 360
+    drawPolygon(myTurtle, sideLength, 360)
+
+def drawPolygon(myTurtle, sideLength, numSides):
+    turnAngle = 360 / numSides
+    for i in range(numSides):
+        myTurtle.forward(sideLength)
+        myTurtle.left(turnAngle)
+
+
+def main():
+    x = input("Enter Triangle, Square, Spiral, Circle, Polygon or None to exit: ")
+    x = x.lower()
+    if (x == 'none'):
+        exit()
+    elif (x == 'triangle'):
+        myTurtle = turtle.Turtle()
+        myTurtle.color("brown")
+        drawTriangle(myTurtle, 150)
+    elif (x == 'square'):
+        myTurtle = turtle.Turtle()
+        myTurtle.color("brown")
+        drawSquare(myTurtle, 150)
+    elif (x == 'circle'):
+        myTurtle = turtle.Turtle()
+        myTurtle.color("brown")
+        drawCircle(myTurtle, 75)
+    elif (x == 'spiral'):
+        myTurtle = turtle.Turtle()
+        myTurtle.color("brown")
+        drawSpiral(myTurtle, 150)
+    else:
+        while (x == "polygon"):
+            y = input("Enter how many sides your polygon has or none to exit: ")
+            myTurtle = turtle.Turtle()
+            myTurtle.color("brown")
+            if (y == "none"):
+                exit()
+            drawPolygon(myTurtle, 120, numSides=int(y))
+            exit()
+
+
+
+def main2():
+    myTurtle = turtle.Turtle()
+    myTurtle.color("brown")
+    x = input("Enter Triangle, Square, Spiral, Circle, Polygon or None to exit: ")
+    x = x.lower()
+    if (x == "none"):
+        exit()
+    elif (x == 'triangle'):
+        drawTriangle(myTurtle, 150)
+    elif (x == 'square'):
+        drawSquare(myTurtle, 150)
+    elif (x == 'circle'):
+        drawCircle(myTurtle, 75)
+    elif (x == 'spiral'):
+        drawSpiral(myTurtle, 150)
+    else:
+        while (x == "polygon"):
+            y = input("Enter how many sides your polygon has or none to exit: ")
+            if (y == "none"):
+                exit()
+            drawPolygon(myTurtle, 120, numSides = int(y))
+            exit()
+
+main()
+
+
+
+
+
+
+
+
